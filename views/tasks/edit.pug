@@ -1,0 +1,17 @@
+extends ../layout/layout.pug
+block content
+    div.container
+      
+      div.col-xs-4.col-sm-6.col-md-10
+        div.card
+            div.card-header.bg-dark
+            div.card-body
+              form(action=`/tasks/${task.id}?_method=PUT` method="POST" )
+                  textarea(name="description", cols="30", rows="10" placeholder="Coloca aquí el pendiente a realizar" class="form-control" )=task.description
+                    
+                  input(type="submit" value="Guardar" class="btn btn-secondary float-right mt-4")
+
+            div.card-footer.bg-dark
+              p.float-right.text-light=task.createdAt
+            
+            

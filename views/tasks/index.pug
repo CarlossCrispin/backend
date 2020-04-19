@@ -1,0 +1,36 @@
+extends ../layout/layout.pug
+block content
+  div.container.mb-5
+    a(class="btn btn-success btn-sm  m-2" href=`/tasks/new` ) Nuevo
+    hr
+    div.col-12
+      div.row.justify-content-center
+        each task in tasks 
+          div.col-sm-10.col-md-6.col-lg-4
+              div.card.mt-2
+                  div.card-header.bg-dark
+                  div.card-body
+                      h4= task.description 
+                  div.card-footer
+                    span 
+                      a(class="btn btn-info btn-sm float-right" href=`/tasks/${task.id}` ) Ver
+                    span 
+                      a(class="btn btn-warning btn-sm float-right mr-2" href=`/tasks/${task.id}/edit` ) Actualizar
+                      
+                        
+    p 
+      span Usuarios Conectados : 
+      span#connected
+    script(src="/socket.io/socket.io.js")
+    script.
+      socket = io.connect()
+        console.log("entra");
+      socket.on('count_updated', function(data){
+        console.log(data);
+        document.querySelector('#connected').innerHTML = data.count
+        })
+        
+      socket.on('new_task', function(data){
+        console.log(data);
+        console.log("entra2");
+        })

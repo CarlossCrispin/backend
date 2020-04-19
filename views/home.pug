@@ -1,0 +1,22 @@
+extends ./layout/layout.pug
+block content
+  h2 Bienvenido
+  if(user)
+    h4= user.email
+
+  p 
+    span Usuarios Conectados : 
+    span#connected
+  script(src="/socket.io/socket.io.js")
+  script.
+    socket = io.connect()
+
+    socket.on('count_updated', function(data){
+      console.log(data);
+      document.querySelector('#connected').innerHTML = data.count
+      })
+      
+    socket.on('new_task',function(data){
+      console.log(data);
+      console.log("entra");
+    })

@@ -1,0 +1,17 @@
+extends ../layout/layout.pug
+block content
+  div.container
+
+    div.col-xs-4.col-sm-6.col-md-10
+      div.card
+          div.card-header.bg-dark
+          div.card-body
+              h2= category.title
+              p= category.color
+          div.card-footer.bg-dark
+            form(action=`/categories/${category.id}?_method=DELETE` method="POST")
+                input(type="submit" value="Eliminar" class="btn btn-danger float-right mt-4" Onclick="return confirm('seguro de eliminar ');")
+
+  
+
+  

@@ -1,0 +1,6 @@
+extends ../layout/layout.pug
+block content
+  h2 New
+  form(action="/tasks" method="POST" )
+      textarea(name="description", cols="30", rows="10" placeholder="Coloca aquí el pendiente a realizar" class="form-control")
+      input(type="submit" value="Guardar" class="btn btn-success m-4 float-right")

@@ -1,0 +1,17 @@
+extends ../layout/layout.pug
+block content
+    div.container
+
+      div.col-xs-4.col-sm-6.col-md-10
+        div.card
+            div.card-header.bg-dark
+            div.card-body
+                h2= task.description
+
+                p.text-muted=task.createdAt
+                
+                strong Autor:
+                    span= task.user.email
+            div.card-footer.bg-dark
+              form(action=`/tasks/${task.id}?_method=DELETE` method="POST" )
+                  button.float-right(type="submit" value="eliminar" class="btn btn-danger float-right mt-4" Onclick="return confirm('seguro de eliminar ');") eliminar

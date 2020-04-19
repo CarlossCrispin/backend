@@ -1,0 +1,22 @@
+extends ../layout/layout.pug
+block content
+
+  div.container.mb-5
+    a(class="btn btn-success btn-sm  m-2" href=`/categories/new` ) Nuevo
+    hr
+    div.col-12
+      div.row.justify-content-center
+        each category in categories
+          div.col-sm-10.col-md-6.col-lg-4
+              div.card.mt-2
+                  div.card-header.bg-dark
+                  div.card-body
+                      h4= category.title
+                      p(style=`background-color:${category.color}`)= category.color
+                  div.card-footer
+                    span 
+                      a(class="btn btn-info btn-sm float-right" href=`/categories/${category.id}` ) Ver
+                    span 
+                      a(class="btn btn-warning btn-sm float-right mr-2" href=`/categories/${category.id}/edit` ) Actualizar
+                      
+                            

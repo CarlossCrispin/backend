@@ -1,0 +1,15 @@
+extends ../layout/layout.pug
+block content
+  div.container
+
+    div.col-xs-4.col-sm-6.col-md-10
+      div.card
+        div.card-header.bg-dark
+        div.card-body
+          form(action=`/categories/${task.id}?_method=PUT` method="POST" )
+            textarea(name="title", cols="30", rows="10" placeholder="Coloca aquí el pendiente a realizar" class="form-control" )= task.title
+            input(type="text" name='Categories' class="form-control")
+            input(type="color" name="color" class="form-control" value=`${task.color}`)
+
+
+            input(type="submit" value="Actulizar" class="btn btn-secondary float-right mt-4")

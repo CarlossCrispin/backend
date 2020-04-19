@@ -1,0 +1,9 @@
+extends ../layout/layout.pug
+block content
+    form(action="/categories" method="POST")
+        textarea(name="title" placeholder="Qué pendiente vas a guardar" class="form-control")
+        label(class="form-control") Elige el color:
+        input(type="color" name="color" class="form-control")
+        br
+        br
+        input(type="submit" value="Guardar" class="btn btn-success m-4 float-right")

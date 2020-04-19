@@ -1,0 +1,14 @@
+extends ../layout/layout.pug
+block content
+    div.container.mt-5
+        h2 Crear cuenta
+        form(action="/users" method="POST")
+            .form-group
+                label(for='exampleInputEmail1') Correo electronico
+                input#email.form-control(type='email', aria-describedby='emailHelp' name="email" Required)
+                small#emailHelp.form-text.text-muted Nunca compartiremos su correo electrónico con nadie más..
+            .form-group
+                label(for='exampleInputPassword1') Password
+                input#password.form-control(type='password', aria-describedby='passwordHelp' name="password" Required)
+                small#passwordHelp.form-text.text-muted minimo 8.
+            button.btn.btn-primary(type='submit') Crear cuenta.

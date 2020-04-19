@@ -1,0 +1,35 @@
+nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  a.navbar-brand(href='#') Tasks
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/tasks') Tareas
+      li.nav-item
+        a.nav-link(href='/categories') Categorias
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle(href='#' role='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+          | Dropdown
+        .dropdown-menu(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='/tasks') Tareas
+          a.dropdown-item(href='#') Another action
+          .dropdown-divider
+          a.dropdown-item(href='#') Something else here
+      li.nav-item
+        a.nav-link.disabled(href='#' tabindex='-1' aria-disabled='true') Disabled
+        
+    ul.navbar-nav.ml-auto
+      if(!user)
+        li.nav-item
+          a.nav-link(href='/singup') Registrarse
+        li.nav-item
+          a.nav-link(href='/sessions') Iniciar Sesión
+      if(user)
+        li.nav-item
+            form(action='/sessions?_method=DELETE' method="POST")
+              button.nav-link.bg-dark(type="submit") Cerrar Sesión
